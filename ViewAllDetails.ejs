@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="view-port" content="width=device-width, initial-scale=1">
+  <title>Student Details</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border: 1px solid black;
+    }
+    th {
+      background-color: black; 
+      color: whitesmoke; 
+      animation: sparkling infinite; 
+    }
+    td {
+      background-color: lightblue; 
+    }
+    body {
+      background-color: lightcoral; 
+      animation: shimmering 3s infinite; 
+    }
+    
+   
+    @keyframes sparkling {
+      0% {
+        color: #ffcc00;
+        text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00; 
+      }
+      50% {
+        color: #fff0;
+        text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 15px #ffff00;
+      }
+      100% {
+        color: #ffdc;
+        text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00;
+      }
+    }
+    @keyframes shimmering {
+      0% {
+        background-position: -200px 0;
+      }
+      100% {
+        background-position: 200px 0;
+      }
+    }
+    
+    
+    .details {
+      display: none;
+    }
+    
+    .expanded .details {
+      display: table-row;
+    }
+  
+    .toggle-button {
+      background-color: blue;
+      color: white;
+      padding: 4px 8px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    td:hover {
+      background-color: lightgray;
+    }
+    
+    
+    @keyframes door-opening {
+      0% {
+        transform: scaleX(0);
+      }
+      50% {
+        transform: scaleX(1.2);
+      }
+      100% {
+        transform: scaleX(1);
+      }
+    }
+    
+  
+    .details {
+      animation: door-opening 0.5s linear;
+      transform-origin: left;
+    }
+
+    .btn-delete{
+    background-color: #f63722; /* Green */
+    border:#060b23;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+}     
+  </style>
+
+</head>
+<body>
+
+  <!-- <table id="Table">
+    <tr>
+      <th>
+        Student Name
+      </th>
+      <th>StudentId</th>
+      <th>Personal Mail Id</th>
+      <th>DOB</th>
+    </tr>
+  </table>
+
+  <script>
+    fetch('/fetch')
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(StudentDetails => {
+          let studentName = StudentDetails.studentName;
+          let studentId = StudentDetails.studentId;
+          let personalEmail = StudentDetails.personalEmail;
+          let dob = StudentDetails.dob;
+
+          let studentTableRow = "<tr>" +
+            "<td onClick='displayInfo(" + studentId +")'>"+"<a href=\"/Display"+`/${studentId}`+ "\"> " + studentName + "</a></td>" +
+            "<td >"+ studentId + "</td>" +
+            "<td>" + personalEmail + "</td>" +
+            "<td>" + dob + "</td>" +
+            `<td><button onClick="parent.location='/DeleteStudent/${studentId}'"> delete </button></td>` +
+            "</tr>";
+
+          $("#Table").append(studentTableRow);
+
+        });
+      })
+      .catch(error => {
+        throw error;
+    });
+
+    function displayInfo(studentId){
+      debugger;
+      let route = 'fetchData/studentid=' + studentId;+ studentId;
+      fetch(route)
+      .then(response => response.json())
+      .then(data => {
+        console.log("123");
+        console.log(data)
+      })
+      .catch(error => {
+        throw error;
+    });
+      }
+  </script> -->
+
+  <table id="Table">
+    <tr>
+      <th style="width: 22%;">StudentId</th>
+      <th style="width: 22%;">Student Name</th>
+      <th style="width: 24%;">Personal Mail Id</th>
+      <th style="width: 22%;">DOB</th>
+      <th style="width: 10%;"></th>
+    </tr>
+    <% for (const data of student) { %>
+      <tr>
+          
+          <td style="width: 22%;"><a href="/Display/<%= data.studentId %>"><%= data.studentId %></a></td>
+          <td style="width: 22%;"><%= data.studentName %> </td>
+          <td style="width: 24%;"><%= data.personalEmail %></td>
+          <td style="width: 22%;"><%= data.dob %></td>
+          <td style="width: 10%;"><button class="btn-delete" onClick="parent.location='/DeleteStudent/<%= data.studentId %>'">Delete</button></td>
+      </tr>
+  <% } %>
+  </table>
+
+</body>
+</html>
+
+

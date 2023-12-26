@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="view-port" content="width=device-width, initial-scale=1">
+  <title>Student Page</title>
+  <style>
+    body{
+      margin:0;
+      padding:0;
+      background:lightgreen;
+  }
+  #header {
+    text-align: center;
+    font-size: 24px;
+    padding: 40px;
+    background-color:lightblue;
+    color: white;
+  }
+  #options {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+  }
+  
+  #options button {
+    padding: 15px 15px;
+    margin-left: 10px;
+    background-color: blue;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #options button:hover {
+    background-color: black;
+  }
+  </style>
+</head>
+<body>
+  <div id="header">
+    STUDENT DATABASE
+  </div>
+  <h1 style="font-family:sans-serif; color:white; text-align:center;margin-top: 300px;">To REGISTER click on ADD Details else click on VIEW DETAILS to view DATA</h1>
+  <div id="options">
+    <div class="middle">
+        <a href="/AddDetails"><button class="btn btn1" >Add details</button></a>
+        <a href="/ViewAllDetails"><button class="btn btn1">View details</button></a>
+  </div>
+    </div>
+</body>
+</html>

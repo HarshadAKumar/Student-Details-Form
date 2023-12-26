@@ -1,0 +1,212 @@
+<html>
+    <head> 
+        <meta name="view-port" content="width=device-width, initial-scale=1">
+        <title> Details</title>
+        <style>
+            *::before,
+            *::after {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+h1{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 100;
+    margin-top:30px;
+    color: black;
+    color-interpolation-filters: linearRGB;
+    text-align: left;
+    text-shadow: 0pc;
+}
+h3{
+    letter-spacing: 1px;
+    margin-left: -110%;
+    margin-right:180%;
+    margin-bottom: -50%;
+}
+body
+            {
+                font-family: "Convergence",sans-serif;
+                height:100vh;
+                display:grid;
+                justify-content:center;
+                align-items:center;
+                font-size:1.2rem;
+                background-color:darkgrey;
+            }
+.Student-form{
+  margin-right:180%;
+  margin-left: -130%;
+  margin-bottom: 80%;
+  margin-top: 40%;
+
+}
+.Parents-form{
+  margin-top: 10%;
+  margin-left:60%;
+  margin-bottom: 160%;
+  margin-top:-280%;
+
+
+}
+.form{
+    position:relative;
+    width:20rem;
+    height:3rem;
+}
+.form__input{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border:5px solid black;
+    border-radius:0.5rem;
+    font-family:inherit;
+    font-size:inherit;
+    color:lightcyan;
+    outline:none;
+    padding:1.25rem;
+    background:none;
+    text-align: right;
+}    
+.form__label{
+    position:absolute;
+    left:1rem;
+    top:0.8rem;
+    padding:0 0.5rem;
+    color:black;
+    cursor:text;
+    transition:top 200ms ease-in,
+    left 400ms ease in,
+    font-size 200ms ease in;
+    background-color:white;
+}
+
+.form__input:focus ~ .form__label,
+.form__input:placeholder-shown.form__input:not(:focus) ~.form__label{
+    top:-0.5rem;
+    font-size:0.8rem;
+    left:0.8rem;
+}               
+button{
+    background-color: black; /* Green */
+    border:#060b23;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top:-140%;
+}     
+        </style>
+    </head>
+    <body>
+        <h1>STUDENT DETAILS</h1>
+        <h3 style="color:black; text-align:left">Personal Details</h3>
+
+        <form action="/UpdateDetail/<%= student.studentId %>" method="POST" autocomplete="off">
+          <div class="Student-form">
+            <div class="form">
+              <input name="studentName" value="<%= student.studentName %>" type="text" id="studentName" class="form__input" required>
+              <label for="studentName" class="form__label">Student Name:-</label>  
+          </div>
+          <br>
+          <div class="form">
+              <input name="studentId" value="<%= student.studentId %>" type="number" id="studentId" class="form__input" required disabled>
+              <label for="studentId" class="form__label">Student ID number:-</label>  
+          </div>
+          <br>
+          <div class="form">
+              <input name="personalEmail" value="<%= student.personalEmail %>" type="text" id="personalEmail" class="form__input" required>
+              <label for="personalEmail" class="form__label">Student Email:-</label>  
+          </div>
+          <br>
+              <div class="form">
+                <input name="dob" value="<%= student.dob %>" type="date" id="dob" class="form__input" required>
+                <label for="dob" class="form__label">Date of Birth:</label>
+              </div>
+              
+              <div class="form">
+                <input name="bloodGroup" value="<%= student.bloodGroup %>" type="text" id="bloodGroup" class="form__input" required>
+                <label for="bloodGroup" class="form__label">Blood Group:</label>
+              </div>
+              
+              <div class="form">
+                <input name="course" value="<%= student.course %>" type="text" id="course" class="form__input" required>
+                <label for="course" class="form__label">Course:</label>
+              </div>
+              
+              <div class="form">
+                <input name="permanentAddress" value="<%= student.permanentAddress %>" type="text" id="permanentAddress" class="form__input" required></input>
+                <label for="permanentAddress" class="form__label">Permanent Address:</label>
+              </div>
+              
+              <div class="form">
+                <input name="presentAddress" value="<%= student.presentAddress %>" type="text" id="presentAddress" class="form__input" required></input>
+                <label for="presentAddress" class="form__label">Present Address:</label>
+              </div>
+              
+              <div class="form">
+                <input name="tenthPercentage" value="<%= student.tenthPercentage %>" type="number" id="tenthPercentage" class="form__input" required>
+                <label for="tenthPercentage" class="form__label">10th Marks in Percentage:</label>
+              </div>
+              
+              <div class="form">
+                <input name="twelfthPercentage" value="<%= student.twelfthPercentage %>" type="number" id="twelfthPercentage" class="form__input" required>
+                <label for="twelfthPercentage" class="form__label">12th Marks in Percentage:</label>
+              </div>
+
+          </div>
+            
+                <div class="Parents-form">
+                  <h2 style="color:black;">Father's Information</h2>
+                <div class="form">
+                  <input name="fatherName" value="<%= student.fatherName %>" type="text" id="fatherName" class="form__input" required>
+                  <label for="fatherName" class="form__label">Father's Name:</label>
+                </div>
+                
+                <div class="form">
+                  <input name="fatherJob" value="<%= student.fatherJob %>" type="text" id="fatherJob" class="form__input" required>
+                  <label for="fatherJob" class="form__label">Father's Job:</label>
+                </div>
+                
+                <div class="form">
+                  <input name="fatherContact" value="<%= student.fatherContact %>" type="number" id="fatherContact" class="form__input" required>
+                  <label for="fatherContact" class="form__label">Father's Contact Number:</label>
+                </div>
+                
+                <div class="form">
+                  <input name="fatherEmail" value="<%= student.fatherEmail %>" type="text" id="fatherEmail" class="form__input" required>
+                  <label for="fatherEmail" class="form__label">Father's Email:</label>
+                </div>
+                
+                <h2 style="color:black;">Mother's Information</h2>
+                
+                <div class="form">
+                  <input name="motherName" value="<%= student.motherName %>" type="text" id="motherName" class="form__input" required>
+                  <label for="motherName" class="form__label">Mother's Name:</label>
+                </div>
+                
+                <div class="form">
+                  <input name="motherJob" value="<%= student.motherJob %>" type="text" id="motherJob" class="form__input" required>
+                  <label for="motherJob" class="form__label">Mother's Job:</label>
+                </div>
+                
+                <div class="form">
+                  <input name="motherContact" value="<%= student.motherContact %>" type="number" id="motherContact" class="form__input" required>
+                  <label for="motherContact" class="form__label">Mother's Contact Number:</label>
+                </div>
+                
+                <div class="form">
+                  <input name="motherEmail" value="<%= student.motherEmail %>" type="text" id="motherEmail" class="form__input" required>
+                  <label for="motherEmail" class="form__label">Mother's Email:</label>
+                </div>
+            </div>    
+            <button type="submit" style="font-weight:20px; font-family:sans-serif;">Update</button>
+        </form>
+    </body>
+</html>

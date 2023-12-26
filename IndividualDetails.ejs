@@ -1,0 +1,174 @@
+<html>
+  <head> 
+      <meta name="view-port" content="width=device-width, initial-scale=1">
+      <title> Display Details</title>
+      <style>
+        *::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Trebuchet MS';
+  font-size: 30px;
+  font-weight: 100;
+  margin-top: 30px;
+  color: black;
+  color-interpolation-filters: linearRGB;
+  text-align: left;
+  text-shadow: 0pc;
+}
+
+h3 {
+  letter-spacing: 1px;
+  margin-left: -110%;
+  margin-right: 180%;
+  margin-bottom: -50%;
+}
+
+body {
+  font-family: "Trebuchet MS";
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  background-color: grey;
+  position: relative;
+}
+
+.Student-details {
+  margin-right: 180%;
+  margin-left: -130%;
+  margin-bottom: 80%;
+  margin-top: 40%;
+}
+
+.Parents-details {
+  margin-top: 10%;
+  margin-left: 60%;
+  margin-bottom: 160%;
+  margin-top: -280%;
+}
+
+.details {
+  position: relative;
+  width: 20rem;
+  height: 3rem;
+}
+
+.details_one {
+  position: absolute;
+  left: 1rem;
+  top: 0.8rem;
+  padding: 0 0.5rem;
+  color: black;
+  cursor: text;
+  transition: top 200ms ease-in, left 400ms ease-in, font-size 200ms ease-in;
+}
+
+.update-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 150px;
+  height: 30px;
+  background-color: orange(254, 133, 3);
+  font-weight: 600;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+      </style>
+      </head>
+    </head>
+
+    <body>
+      <button onClick="parent.location='/UpdateDetail/<%= student.studentId %>'"  class="update-button">Update Details</button>
+      <h1>STUDENT DETAILS</h1>
+
+      <h3 style="color:black; text-align:left">Personal Details</h3>
+      
+        <div class="Student-details">
+          <div class="details">
+            <label for="studentName" class="details_one">Student Name: <%= student.studentName %></label>  
+        </div>
+        <br>
+        <div class="details">
+            <label for="studentId" class="details_one">Student ID number: <%= student.studentId %></label>  
+        </div>
+        <br>
+        <div class="details">
+            <label for="personalEmail" class="details_one">Student Email: <%= student.personalEmail %></label>  
+        </div>
+        <br>
+            <div class="details">
+              <label for="dob" class="details_one">Date of Birth: <%= student.dob %></label>
+            </div>
+            
+            <div class="details">
+              <label for="bloodGroup" class="details_one">Blood Group: <%= student.bloodGroup %></label>
+            </div>
+            
+            <div class="details">
+              <label for="course" class="details_one">Course: <%= student.course %></label>
+            </div>
+            
+            <div class="details">
+              <label for="permanentAddress" class="details_one">Permanent Address: <%= student.permanentAddress %></label>
+            </div>
+            
+            <div class="details">
+              <label for="presentAddress" class="details_one">Present Address: <%= student.presentAddress %></label>
+            </div>
+            
+            <div class="details">
+              <label for="tenthPercentage" class="details_one">10th Marks in Percentage: <%= student.tenthPercentage %></label>
+            </div>
+            
+            <div class="details">
+              <label for="twelfthPercentage" class="details_one">12th Marks in Percentage: <%= student.twelfthPercentage %></label>
+            </div>
+
+        </div>
+          
+              <div class="Parents-details">
+                <h2 style="color:black;">Father's Information</h2>
+              <div class="details">
+                <label for="fatherName" class="details_one">Father's Name: <%= student.fatherName %></label>
+              </div>
+              
+              <div class="details">
+                <label for="fatherJob" class="details_one">Father's Job: <%= student.fatherJob %></label>
+              </div>
+              
+              <div class="details">
+                <label for="fatherContact" class="details_one">Father's Contact Number: <%= student.fatherContact %></label>
+              </div>
+              
+              <div class="details">
+                <label for="fatherEmail" class="details_one">Father's Email: <%= student.fatherEmail %></label>
+              </div>
+              
+              <h2 style="color:black;">Mother's Information</h2>
+              
+              <div class="details">
+                <label for="motherName" class="details_one">Mother's Name: <%= student.motherName %></label>
+              </div>
+              
+              <div class="details">
+                <label for="motherJob" class="details_one">Mother's Job: <%= student.motherJob %></label>
+              </div>
+              
+              <div class="details">
+                <label for="motherContact" class="details_one">Mother's Contact Number: <%= student.motherContact %></label>
+              </div>
+              
+              <div class="details">
+                <label for="motherEmail" class="details_one">Mother's Email: <%= student.motherEmail %></label>
+              </div>
+          </div>   
+    </body>
+    </html>
